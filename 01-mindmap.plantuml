@@ -1,0 +1,73 @@
+@startmindmap
+
+<style>
+node {
+    MaximumWidth 250
+}
+</style>
+
+*:**Artificial Intelligence**
+refers to computational systems that can think, learn, and act intelligently — either by searching for solutions efficiently or by learning from data to improve over time.;
+
+** Classification
+***:<b> Symbolic (Logic-Based)</b>
+Relies on logical reasoning and the manipulation of symbols — such as letters, numbers, or words — to represent knowledge and solve problems.;
+***:<b> Connectionist (Neural Networks)</b>
+Simulates the functioning of biological neurons through artificial neural networks that learn from data and adapt over time.;
+***:<b> Evolutionary (Genetic Algorithms)</b>
+Inspired by the principles of natural selection, using algorithms that evolve solutions through processes like mutation, crossover, and selection.;
+
+** Subfields
+***:<b> Machine Learning</b>
+Enables a machine to autonomously learn rules and reach results from data.;
+***:<b> Deep Learning</b>
+Uses complex algorithms that mimic the brain's neural networks to learn with little or no supervision.;
+***:<b> Natural Language Processing (NLP)</b>
+Employs machine learning techniques to recognize and analyze patterns in human language.;
+
+** Evolved Based On Three Pillars
+*** Data Models
+**** Semantic Networks
+***** Example: <img:images/semantic_network.png>;
+**** Frames
+***** Example: <img:images/frames.png>;
+**** Scripts
+***** Example: <img:images/scripts.png>;
+*** Access to Large Volumes of Data
+*** Increased Affordable Computational Power
+
+**:<b>Intelligent Agents</b>
+An agent is an entity that perceives its environment through sensors and acts upon it using actuators.
+The complete record of everything an agent has perceived is called a percept sequence.
+The agent's behavior is defined by a function that maps percept sequences to actions.;
+
+***:<b>Rational Agents</b>
+A rational agent is one that, for any given percept sequence, selects the action expected to maximize its performance measure.
+    - Rationality aims to maximize expected performance, which is different from perfection, where actual performance is maximized.
+    - A rational agent may need to perform actions to gather information and explore unknown environments.
+    - Agents that learn over time and adapt their behavior are called autonomous agents.;
+*** Task Environment (PEAS)
+****:<b>Performance Measure</b>
+The criterion that defines the agent's success.;
+**** Environment
+***** Fully vs. Partially Observable: Whether the sensors provide complete access to the environment’s state.
+***** Deterministic vs. Stochastic: Whether the next state is completely determined by the current state and action.
+***** Episodic vs. Sequential: Whether the agent’s experiences are divided into independent episodes (perception → action).
+***** Static vs. Dynamic: Whether the environment can change while the agent is deliberating.
+***** Discrete vs. Continuous: Whether the number of percepts and actions is finite and well-defined.
+***** Single-Agent vs. Multi-Agent: Whether there is only one agent or multiple agents that may be cooperative or competitive.
+****:<b>Actuators</b>
+The components that allow the agent to act on the environment (e.g., motors that move a robot).;
+****:<b>Sensors</b>
+Devices that detect the environment (e.g., cameras, infrared sensors, microphones).;
+***:<b>Types of Agents</b>
+****:<b>Simple Reflex Agents</b>
+React only to the current percept using condition–action rules (“if–then”). Work best in fully observable environments.;
+****:<b>Model-Based Reflex Agents</b>
+Maintain an internal state that tracks aspects of the world not directly observable, allowing them to handle partially observable environments.;
+****:<b>Goal-Based Agents</b>
+Choose actions based on specific goals, enabling more flexible and adaptive planning.;
+****:<b>Utility-Based Agents</b>
+Extend goal-based agents by using a utility function to evaluate and select the action that produces the highest expected satisfaction or performance.;
+
+@endmindmap
