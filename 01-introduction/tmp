@@ -1,0 +1,358 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "31901270",
+   "metadata": {},
+   "source": [
+    "# Artificial Intelligence — Module 01\n",
+    "## Notebook 01: Introduction to AI & Course Overview\n",
+    "\n",
+    "Course by **Prof. Dr. Érica da Costa Reis Carvalho** — UFSJ  \n",
+    "Notebook by: **Caio Fromm** (Repository Author)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "a2e373d5",
+   "metadata": {},
+   "source": [
+    "### Learning Objectives\n",
+    "\n",
+    "By the end of this notebook, you should be able to:\n",
+    "\n",
+    "- Understand the course structure, evaluation, and prerequisites.\n",
+    "- Define \"Artificial Intelligence\" and its main approaches.\n",
+    "- Recognize key historical milestones in AI.\n",
+    "- Verify your Python environment.\n",
+    "- Apply logical reasoning to solve warm-up puzzles."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "b1a03e4c",
+   "metadata": {},
+   "source": [
+    "## 1. Course Overview\n",
+    "\n",
+    "Welcome to the study of Artificial Intelligence! This course will cover a wide range of topics, from foundational concepts to modern applications.\n",
+    "\n",
+    "### Key Topics (Ementa)\n",
+    "\n",
+    "- **Knowledge Representation**\n",
+    "- **Problem Solving & Search Strategies** (Uninformed and Informed)\n",
+    "- **Heuristics and Metaheuristics**\n",
+    "- **Machine Learning** (Supervised and Unsupervised)\n",
+    "- **Neural Networks** and **Genetic Algorithms**\n",
+    "- **Ensemble Methods** (Boosting, Bagging)\n",
+    "- Notions of **Bayesian Networks** and **Fuzzy Logic**\n",
+    "\n",
+    "### Prerequisites\n",
+    "\n",
+    "To succeed in this course, it is recommended to have a good understanding of:\n",
+    "\n",
+    "- **Programming Language:** We will use **Python**.\n",
+    "- **Data Structures:** Comfort with trees, graphs, lists, queues, and stacks.\n",
+    "- **Programming Techniques:** Especially recursion.\n",
+    "- **Basic Mathematics:** Logic, probability, and recurrence relations."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "2704c27d",
+   "metadata": {},
+   "source": [
+    "## 2. What is AI?\n",
+    "\n",
+    "**Artificial Intelligence (AI)** is a vast field, but at its core, it is the capacity of machines to *think* like humans: to learn, perceive, and decide which paths to follow, rationally, in the face of certain situations. (based on *Aula 02*).\n",
+    "\n",
+    "We can categorize AI approaches into two main groups, as seen in the mind map:\n",
+    "\n",
+    "1.  **Symbolic (Logic-Based) AI:** Relies on logical reasoning and the manipulation of symbols (letters, numbers, words) to represent knowledge and solve problems. This was the dominant paradigm in early AI.\n",
+    "2.  **Connectionist AI (Neural Networks):** Simulates the functioning of biological neurons. These systems *learn* from data and adapt over time. This is the foundation for modern Deep Learning."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "4a4e8edb",
+   "metadata": {},
+   "source": [
+    "## 3. A Very Brief History of AI\n",
+    "\n",
+    "The idea of AI has been around for a long time, but the field formally began in the 20th century.\n",
+    "\n",
+    "- **1940s-1950s (The Dawn):** **Alan Turing** introduces the \"Turing Test\" (or \"Imitation Game\") to determine if a machine can exhibit intelligent behavior indistinguishable from a human's. His work on computation during WWII was foundational.\n",
+    "- **1997 (A Milestone):** IBM's **Deep Blue** computer defeats world chess champion Garry Kasparov. This was a major victory for \"brute force\" search and symbolic AI.\n",
+    "- **2010s-Present (The Deep Learning Boom):** Fueled by massive amounts of data and powerful computers (GPUs), Connectionist AI (Deep Learning) achieves superhuman performance in tasks like image recognition, natural language processing, and more."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "b72b458a",
+   "metadata": {},
+   "source": [
+    "## 4. Python Environment Check\n",
+    "\n",
+    "We'll use the scientific Python stack throughout this repository. The cell below verifies that the core packages are installed. We will use libraries like `networkx` for graphs (Module 1) and `scikit-learn` for machine learning (Module 4)."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "a8f96e67",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import sys\n",
+    "import platform\n",
+    "\n",
+    "# Core scientific libraries\n",
+    "pkgs = [\n",
+    "    \"numpy\", \n",
+    "    \"pandas\", \n",
+    "    \"matplotlib\", \n",
+    "    \"scikit-learn\", \n",
+    "    \"networkx\" # For Module 1 (Knowledge Representation)\n",
+    "]\n",
+    "results = {}\n",
+    "\n",
+    "print(f\"Python Version: {platform.python_version()}\")\n",
+    "print(\"Checking core packages...\")\n",
+    "\n",
+    "for p in pkgs:\n",
+    "    try:\n",
+    "        __import__(p if p != \"scikit-learn\" else \"sklearn\")\n",
+    "        results[p] = \"OK\"\n",
+    "    except ImportError as e:\n",
+    "        results[p] = f\"MISSING or ERROR: {e}\"\n",
+    "\n",
+    "for pkg, status in results.items():\n",
+    "    print(f\"- {pkg:<15} ... {status}\")\n",
+    "\n",
+    "if \"MISSING\" in \" \".join(results.values()):\n",
+    "    print(\"\\nWarning: One or more packages are missing. Please install them (e.g., using 'pip install networkx')\")\n",
+    "else:\n",
+    "    print(\"\\nAll set! Your environment looks good.\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "fa7e54a1",
+   "metadata": {},
+   "source": [
+    "## 5. Warm-up Puzzles (Desafios)\n",
+    "\n",
+    "Let's warm up our logical reasoning skills. These puzzles are taken from *Aula 01*."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "4a4ecf52",
+   "metadata": {},
+   "source": [
+    "### Puzzle 1 (Image Sequence)\n",
+    "\n",
+    "*(Based on Slide 17)*\n",
+    "\n",
+    "**Task:** A sequence of 6 \"robot faces\" is shown. Which of the 5 options completes the sequence?\n",
+    "\n",
+    "**Analysis:** We can break this down by features:\n",
+    "- **Head Shape:** Circle, Square, Triangle, Square, Triangle, ...\n",
+    "- **Eyes:** Empty, Filled, Filled, Empty, Filled, ...\n",
+    "- **Nose:** Filled Triangle, Empty Triangle, Striped Triangle, Striped Triangle, Filled Triangle, ...\n",
+    "- **Hair:** 3 hairs, 1 hair, 2 hairs, 2 hairs, 3 hairs, ...\n",
+    "\n",
+    "**Your Task:** Analyze the patterns for each feature. Which properties must the 7th face have? Which option (A-E) is the correct one?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "2d3e1b9a",
+   "metadata": {},
+   "source": [
+    "### Puzzle 2 (Image Logic)\n",
+    "\n",
+    "*(Based on Slide 18)*\n",
+    "\n",
+    "**Task:** Two logic rows are shown. `Box1 + Box2 = Box3`. You must find the `Box3` for the second row.\n",
+    "\n",
+    "**Analysis:**\n",
+    "- **Row 1:** `Box1` (square with 3 lines, 1 circle) + `Box2` (square with 2 lines) = `Box3` (square with 5 lines, 1 circle).\n",
+    "- **Logic:** This looks like a visual **overlay**. The lines from `Box1` and `Box2` are combined. The circle from `Box1` is carried over.\n",
+    "\n",
+    "**Your Task:** Apply this \"overlay\" logic to the second row. What does the resulting box look like? Which of the 5 options is correct?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "e6fb24e0",
+   "metadata": {},
+   "source": [
+    "### Puzzle 3 (Numeric Sequences)\n",
+    "\n",
+    "*(Based on Slide 19)*\n",
+    "\n",
+    "**Task:** Find the next number in each sequence.\n",
+    "\n",
+    "**Sequence A:** `2, 4, 7, 11, 16, ?`\n",
+    "\n",
+    "**Sequence B:** `0, 1, 1, 2, 3, ?`"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "1f8a7b3c",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Your turn! Try to solve Puzzle 3 here.\n",
+    "\n",
+    "def solve_sequence_A():\n",
+    "    # Hint: Look at the *difference* between consecutive numbers.\n",
+    "    # 4 - 2 = 2\n",
+    "    # 7 - 4 = 3\n",
+    "    # 11 - 7 = 4\n",
+    "    # 16 - 11 = 5\n",
+    "    # What's next?\n",
+    "    next_num = 16 + 6\n",
+    "    return next_num\n",
+    "\n",
+    "def solve_sequence_B():\n",
+    "    # Hint: What is the relationship between a number and the two that came before it?\n",
+    "    # 0 + 1 = 1\n",
+    "    # 1 + 1 = 2\n",
+    "    # 1 + 2 = 3\n",
+    "    # What's next?\n",
+    "    next_num = 2 + 3\n",
+    "    return next_num\n",
+    "\n",
+    "print(f\"Next in Sequence A: {solve_sequence_A()}\")\n",
+    "print(f\"Next in Sequence B: {solve_sequence_B()} (This is the Fibonacci sequence)\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "ae5ce72f",
+   "metadata": {},
+   "source": [
+    "### Puzzle 4 (Logic Puzzle - Sigla)\n",
+    "\n",
+    "*(Based on Slide 20)*\n",
+    "\n",
+    "**Task:** You are comparing a mystery 3-letter acronym (let's call it `XYZ`) with five other acronyms. Find the mystery acronym.\n",
+    "\n",
+    "**Clues:**\n",
+    "1.  `MÊS`: Has **no** letters in common with `XYZ`.\n",
+    "2.  `SIM`: Has **one** letter in common with `XYZ`, but in the **wrong** position.\n",
+    "3.  `BOI`: Has **one** letter in common with `XYZ`, in the **correct** position.\n",
+    "4.  `BOL`: Has **one** letter in common with `XYZ`, but in the **wrong** position.\n",
+    "5.  `ASO`: Has **one** letter in common with `XYZ`, in the **correct** position.\n",
+    "\n",
+    "**Options:**\n",
+    "a) `BIL`\n",
+    "b) `ALI`\n",
+    "c) `LAS`\n",
+    "d) `OLI`\n",
+    "e) `ABI`\n",
+    "\n",
+    "**Your Task:** Go through each option (a-e) and test it against the 5 clues. Only one option will satisfy all conditions. *Hint: Start with Clue 1 (MÊS). Any option with M, E, or S is immediately wrong.*"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "d4e9f0c1",
+   "metadata": {},
+   "source": [
+    "### Puzzle 5 (Logic Puzzle - Ages)\n",
+    "\n",
+    "*(Based on Slide 21)*\n",
+    "\n",
+    "**Task:** Given the following statements, determine the correct conclusion.\n",
+    "\n",
+    "**Statements:**\n",
+    "1. Luiza is 6 years older than Ana.\n",
+    "2. Luiza is 13 years older than Bia.\n",
+    "3. Paula is 6 years older than Bia.\n",
+    "\n",
+    "**Conclusions:**\n",
+    "a) Luiza is not the oldest.\n",
+    "b) Ana is the youngest.\n",
+    "c) Paula is younger than Ana.\n",
+    "d) Paula and Ana are the same age.\n",
+    "e) Luiza and Paula are the same age.\n",
+    "\n",
+    "**Your Task:** Assign a variable to one person's age (e.g., `Bia = x`) and write equations for everyone else. Then, compare their ages.\n",
+    "\n",
+    "- Let `Bia = x`\n",
+    "- From (2), `Luiza = x + 13`\n",
+    "- From (3), `Paula = x + 6`\n",
+    "- From (1), `Ana = Luiza - 6 = (x + 13) - 6 = x + 7`\n",
+    "\n",
+    "Now check the conclusions: `Luiza (x+13)`, `Ana (x+7)`, `Paula (x+6)`, `Bia (x)`. Which conclusion is true?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "a0f5d8e7",
+   "metadata": {},
+   "source": [
+    "### Puzzle 6 (Logic Puzzle - Pearls)\n",
+    "\n",
+    "*(Based on Slide 22)*\n",
+    "\n",
+    "**Task:** You have 9 identical-looking pearls. One is fake and **lighter** than the others. You have a two-pan balance scale. How can you find the fake pearl in just **two** weighings?\n",
+    "\n",
+    "**Your Task:** Describe the two steps. \n",
+    "\n",
+    "- **Weighing 1:** What do you put on the left pan? What do you put on the right pan? What do you leave off?\n",
+    "  - *Case 1:* The scale tips. What does this tell you?\n",
+    "  - *Case 2:* The scale balances. What does this tell you?\n",
+    "\n",
+    "- **Weighing 2:** Based on the result of Weighing 1, what is your second weighing?\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "607a4069",
+   "metadata": {},
+   "source": [
+    "## 6. Reflection\n",
+    "\n",
+    "Now that we've introduced the course and warmed up, think about the AI you already use.\n",
+    "\n",
+    "- Where do you interact with AI today? (e.g., streaming recommendations, virtual assistants, game NPCs, spam filters).\n",
+    "- What are your expectations for this course? What part of AI are you most curious about?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "24f7c875",
+   "metadata": {},
+   "source": [
+    "\n",
+    "---\n",
+    "\n",
+    "> Course materials adapted from slides by **Prof. Dr. Érica da Costa Reis Carvalho** (UFSJ)  \n",
+    "> Reference: **Russell, S.; Norvig, P. _Inteligência Artificial_, 2ª edição. Elsevier, 2004.**\n"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbformat_minor": 5,
+   "pygments_lexer": "ipython3",
+   "version": "3.10.12"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
