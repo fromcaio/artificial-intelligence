@@ -171,5 +171,6 @@ Where appropriate, visual elements include:
 
 ## 📬 Author
 
-**Caio Fromm**
+**FromCaio**
+
 📎 GitHub: [https://github.com/fromcaio](https://github.com/fromcaio)
