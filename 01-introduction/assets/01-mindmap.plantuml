@@ -28,11 +28,11 @@ Employs machine learning techniques to recognize and analyze patterns in human l
 ** Evolved Based On Three Pillars
 *** Data Models
 **** Semantic Networks
-***** Example: <img:images/semantic_network.png>;
+***** Example: <img:kr-examples/semantic_network.png>;
 **** Frames
-***** Example: <img:images/frames.png>;
+***** Example: <img:kr-examples/frames.png>;
 **** Scripts
-***** Example: <img:images/scripts.png>;
+***** Example: <img:kr-examples/scripts.png>;
 *** Access to Large Volumes of Data
 *** Increased Affordable Computational Power
 
